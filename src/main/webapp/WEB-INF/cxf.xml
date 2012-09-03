@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+
+	<jaxrs:server id="customerService" address="/customers">
+		<jaxrs:serviceBeans>
+			<ref bean="orderService" />
+		</jaxrs:serviceBeans>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+		<jaxrs:providers>
+			<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider">
+			</bean>
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<util:map id="propertiesMap">
+	</util:map>
+
+	<bean id="orderService" class="com.lloydstsb.rest.OrderInfoImpl" />
+</beans>

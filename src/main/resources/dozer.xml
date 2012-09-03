@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+	<mapping>
+		<class-a>com.lloydstsb.rest.domain.OrderList</class-a>
+		<class-b>com.lloydstsb.rest.valueobjecs.OrderListVo</class-b>
+		<field>
+			<a>orders</a>
+			<b>orders</b>
+		</field>
+	</mapping>
+
+	<mapping>
+		<class-a>com.lloydstsb.rest.domain.Order</class-a>
+		<class-b>com.lloydstsb.rest.valueobjecs.OrderVo</class-b>
+	</mapping>
+	
+	<mapping>
+		<class-a>com.lloydstsb.rest.domain.Address</class-a>
+		<class-b>com.lloydstsb.rest.valueobjecs.AddressVo</class-b>
+		<field>
+			<a>address</a>
+			<b>addressLine1</b>
+		</field>
+	</mapping>
+</mappings>  
